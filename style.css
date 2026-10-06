@@ -51,3 +51,41 @@
 
 /* finalized homepage hero */
 .hero-final{background:#fff;padding:0;overflow:hidden}.hero-final-wrap{width:100%;margin:0}.hero-final-img{display:block;width:100%;height:auto;max-width:none}@media(max-width:620px){.hero-final{padding:0}.hero-final-img{width:100%;height:auto}}
+
+
+/* works story grid */
+.works-story-head{padding:76px 0 44px;text-align:center;background:#fff}
+.works-story-script{font-family:"Times New Roman",serif;font-style:italic;font-size:1.05rem;color:#6a6a6a;margin:0 0 4px}
+.works-story-head .section-kicker{margin-bottom:8px}
+.works-story-head h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(2.1rem,3.8vw,3.25rem);font-weight:500;letter-spacing:.16em;margin:0;color:var(--navy)}
+.works-story-rule{display:flex;width:58px;height:4px;margin:22px auto 24px}
+.works-story-rule span{flex:1}
+.works-story-rule span:nth-child(1){background:#d99c3a}
+.works-story-rule span:nth-child(2){background:#46a5c4}
+.works-story-rule span:nth-child(3){background:#b73737}
+.works-story-rule span:nth-child(4){background:#b8b8b8}
+.works-story-lead{font-size:.95rem;line-height:1.9;color:var(--muted);margin:0}
+.works-story-section{padding:20px 0 82px;background:#fff}
+.works-story-filter{display:flex;align-items:center;justify-content:center;gap:34px;border-bottom:1px solid var(--line);padding:0 0 14px;margin-bottom:46px;overflow-x:auto}
+.works-filter-btn{appearance:none;border:0;background:none;padding:9px 0;font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:.9rem;color:#a1a8ae;white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent}
+.works-filter-btn:hover,.works-filter-btn.active{color:var(--navy);border-bottom-color:var(--navy)}
+.works-story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 28px}
+.works-story-card{display:block;background:#f4f8fa;transition:transform .22s ease,box-shadow .22s ease}
+.works-story-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(22,45,70,.10)}
+.works-story-card[hidden]{display:none}
+.works-story-photo{position:relative;aspect-ratio:16/10;overflow:hidden;background:#e8edf0}
+.works-story-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.works-story-card:hover .works-story-photo img{transform:scale(1.025)}
+.works-story-photo span{position:absolute;left:14px;bottom:0;background:#76c6b0;color:#fff;padding:6px 11px;font-size:.68rem;letter-spacing:.08em;font-weight:800}
+.works-story-card[data-category~="mansion"] .works-story-photo span{background:#55b7c9}
+.works-story-card[data-category~="water"] .works-story-photo span{background:#4a9ec1}
+.works-story-card[data-category~="exterior"] .works-story-photo span{background:#7095a7}
+.works-story-card[data-category~="newbuild"] .works-story-photo span{background:#b18b5a}
+.works-story-card[data-category~="demolition"] .works-story-photo span{background:#8d8d8d}
+.works-story-body{padding:18px 20px 20px}
+.works-story-body h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:1.08rem;font-weight:600;line-height:1.55;margin:0 0 8px;color:var(--navy)}
+.works-story-body p{font-size:.82rem;line-height:1.75;color:var(--muted);margin:0 0 14px}
+.works-story-body b{font-size:.76rem;color:var(--blue)}
+.works-story-body b i{font-style:normal;margin-left:4px}
+@media(max-width:900px){.works-story-grid{grid-template-columns:repeat(2,1fr)}.works-story-filter{justify-content:flex-start;gap:26px}}
+@media(max-width:620px){.works-story-head{padding:54px 0 30px}.works-story-head h1{font-size:2.15rem}.works-story-lead br{display:none}.works-story-section{padding:10px 0 58px}.works-story-filter{margin-bottom:30px}.works-story-grid{grid-template-columns:1fr;gap:24px}.works-story-body{padding:16px 17px 18px}}
