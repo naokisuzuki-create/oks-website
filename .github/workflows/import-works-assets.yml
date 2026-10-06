@@ -1,0 +1,148 @@
+name: Import works assets
+
+on:
+  push:
+    paths:
+      - ".github/workflows/import-works-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and verify works images
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.parse import quote
+          from urllib.request import Request, urlopen
+          import hashlib
+          import re
+          import shutil
+          import ssl
+
+          BASE = "https://www.oks-inc.com/UsersDir/images/"
+          FILES = [
+            ("assets/works/demolition-amagasaki/image-01.jpg","LINE_ALBUM_尼崎市　解体_211119.jpg","a16c5a3040a43c0528128140bfcd5d56"),
+            ("assets/works/demolition-amagasaki/image-03.jpg","LINE_ALBUM_尼崎市　解体_211119_1.jpg","399f953207f14bd822ba96495ce421cf"),
+            ("assets/works/demolition-amagasaki/image-06.jpg","LINE_ALBUM_尼崎市　解体_211119_4 (1).jpg","e9feabdcc2e696206f40f2e21a867964"),
+            ("assets/works/exterior-paint-a/image-01.jpg","5.jpg","0810b4615cc4ac4a234f39d10265937c"),
+            ("assets/works/exterior-paint-a/image-02.jpg","6.jpg","d297a5eed85400211fb951b78d47985b"),
+            ("assets/works/exterior-paint-a/image-03.jpg","8(1).jpg","55977cc86bbc356b70011162590b2d35"),
+            ("assets/works/exterior-paint-a/image-04.jpg","8260F858-FA33-4A1E-92F7-905D50928471.jpg","fc65c015347f4cb5d8e9b241e0847eb1"),
+            ("assets/works/exterior-paint-a/image-05.jpg","9.jpg","a7c9f9cce91585f74fb6b6b2350d163e"),
+            ("assets/works/kitchen-replacement/after.jpg","19778153.278e9082c0f6aeabea7c723001941fe8.21021911.jpeg","1cb606bb318074f8a908b573a69f866b"),
+            ("assets/works/kitchen-replacement/before.jpg","19778153.493fd7493ad12b16f7be0bc514653ace.21021911.jpeg","e305ecbcf89837f38cb4d7428d7bc276"),
+            ("assets/works/kitchen-replacement/cover.jpg","19778153.278e9082c0f6aeabea7c723001941fe8.21021911.jpeg","1cb606bb318074f8a908b573a69f866b"),
+            ("assets/works/kitchen-replacement/during-removal.jpg","19778153.8a5360b85e3b5b92b315cd2fea55aca9.21021911.jpeg","cd15f3cbc897cb473539b06b60742f64"),
+            ("assets/works/kyoto-f-house/after-exterior-collage.jpg","LINE_ALBUM_20230422_230422_0 (1).jpg","d2b45281699a886c0fb59a6da8d99946"),
+            ("assets/works/kyoto-f-house/after-interior-collage.jpg","LINE_ALBUM_20230422_230422_2 (1).jpg","e0ef433deb9495d8122ff4caa0e607cb"),
+            ("assets/works/kyoto-f-house/after-kitchen-collage.jpg","LINE_ALBUM_20230422_230422_3 (1).jpg","30734286d947b2829efd11a9174a6741"),
+            ("assets/works/kyoto-f-house/after-living-collage.jpg","LINE_ALBUM_20230422_230422_1 (1).jpg","a4606463ecfdf069eae023a105fb7a34"),
+            ("assets/works/kyoto-f-house/cover.jpg","LINE_ALBUM_20230422_230422_4 (1).jpg","7d66594b76d55021281549ce664419ea"),
+            ("assets/works/kyoto-f-house/process-foundation.jpg","LINE_ALBUM_ブログ用_230310_8.jpg","07291b30a35a92d57e2ea18db2be4c78"),
+            ("assets/works/kyoto-f-house/process-framing-01.jpg","LINE_ALBUM_ブログ用_230310_3.jpg","cca6a979583df2895695903218ca8a43"),
+            ("assets/works/kyoto-f-house/process-framing-interior.jpg","LINE_ALBUM_ブログ用_230310_18.jpg","57a5fa41599cbfeb4355a786eec82ac7"),
+            ("assets/works/osaka-m-house/after-bath.jpg","line_130872014312841.jpg","7d50da49287bbfdd4bdf0712a77b427e"),
+            ("assets/works/osaka-m-house/after-kitchen.jpg","line_130866552520655.jpg","935bf3a06e0dd208ed48b9592f275d3b"),
+            ("assets/works/osaka-m-house/after-living.jpg","line_130882017283673.jpg","77d76225c6c24eb5480252cd971b28e4"),
+            ("assets/works/osaka-m-house/after-tatami.jpg","line_130878105158674.jpg","95341a080353fb0de90e8887fb26abf8"),
+            ("assets/works/osaka-m-house/after-washroom.jpg","line_130876107278987.jpg","f2f522e82d386455592cac65f6ca1244"),
+            ("assets/works/osaka-m-house/before-bath.jpg","line_101398057720465.jpg","30a2089b678c8ce94555a951ca7233b8"),
+            ("assets/works/osaka-m-house/before-kitchen.jpg","line_101416006938170.jpg","bd5b76688d2461a7d5b9e8c2c43c5c90"),
+            ("assets/works/osaka-m-house/before-living.jpg","line_101382828559009(2).jpg","66efc252e9d807646c54161d5acda76d"),
+            ("assets/works/osaka-m-house/before-tatami.jpg","line_101406622070984(2).jpg","911fbe7452bfe7286447e900375ce1cf"),
+            ("assets/works/osaka-m-house/before-washroom.jpg","line_101401404386610(1).jpg","1ede6411251c82bb31cf619dade921d9"),
+            ("assets/works/osaka-m-house/cover.jpg","line_130882017283673.jpg","77d76225c6c24eb5480252cd971b28e4"),
+            ("assets/works/osaka-t-mansion/after-bath.jpg","takakura13.jpg","e170e381dd3db8d3af0cd213d058369c"),
+            ("assets/works/osaka-t-mansion/after-kitchen.jpg","takakura10.jpg","5658e08682841431d8e5a22a6a84a928"),
+            ("assets/works/osaka-t-mansion/after-room.jpg","takakura01.jpg","2ed8a9366a09a4251764bf551eed4c32"),
+            ("assets/works/osaka-t-mansion/after-toilet.jpg","takakura14.jpg","0969a323b18978e918a11545024adbbe"),
+            ("assets/works/osaka-t-mansion/after-washroom.jpg","takakura11.jpg","a72ca2ebbccd17f8c44c81ed375cd58f"),
+            ("assets/works/osaka-t-mansion/before-bath.jpg","line_205087838716101(1).jpg","07ea50cb55d884941627cac68ea57202"),
+            ("assets/works/osaka-t-mansion/before-kitchen.jpg","line_205082660408289(1).jpg","c71efa06966354886bf7852582ba4911"),
+            ("assets/works/osaka-t-mansion/before-room.jpg","line_205079078674435(1).jpg","0a8dc7ec45c2ae12b780886d3a10a24b"),
+            ("assets/works/osaka-t-mansion/before-toilet.jpg","line_205089421651517(1).jpg","df118b7709eb70c4a0e8abd3a5b2c67e"),
+            ("assets/works/osaka-t-mansion/before-washroom.jpg","line_205090937158809.jpg","5a0061bf6076b7965888740f36bbe8d0"),
+            ("assets/works/osaka-t-mansion/cover.jpg","takakura10.jpg","5658e08682841431d8e5a22a6a84a928"),
+            ("assets/works/roof-waterproof-nishiyodogawa/after-01.jpg","LINE_ALBUM_西淀川区　浅野様邸_220226_1.jpg","ec8b05516d10ffdae24cbe3670c644af"),
+            ("assets/works/roof-waterproof-nishiyodogawa/before.jpg","LINE_ALBUM_西淀川区　浅野様邸_220226.jpg","9d70a119745b94dafdee04141b1021e6"),
+            ("assets/works/roof-waterproof-nishiyodogawa/cover.jpg","LINE_ALBUM_西淀川区　浅野様邸_220226_2.jpg","6de0a2d1ff5885ef2d254cac3d1df492"),
+            ("assets/works/stair-reform-katano/process-01.jpg","LINE_ALBUM_交野市　山本邸_221109_0.jpg","33cfeefbeac7e4311143c2d78e7518b6"),
+            ("assets/works/stair-reform-katano/process-02.jpg","LINE_ALBUM_交野市　山本邸_221109_1.jpg","cc66529661f76311034c7a7720e26d26"),
+            ("assets/works/stair-reform-katano/process-03.jpg","LINE_ALBUM_交野市　山本邸_221109_2.jpg","800d9b8a5f48c424bcd6c10fa9d26430"),
+            ("assets/works/stair-reform-katano/process-04.jpg","LINE_ALBUM_交野市　山本邸_221109_3.jpg","24d435018c1b1290b62d96ba52820c1c"),
+            ("assets/works/yawata-newbuild/image-02.jpg","LINE_ALBUM_八幡市川口東扇8-7_220516_22 (1).jpg","5b2890271ae6ebe0af7127c347303c75"),
+            ("assets/works/yawata-newbuild/image-08.jpg","LINE_ALBUM_八幡市川口東扇8-7_220827_1.jpg","9138ab8278ad882348f67fb07fb19852"),
+            ("assets/works/yawata-newbuild/image-09.jpg","LINE_ALBUM_八幡市川口東扇8-7_220827_10.jpg","d74cd43f145a5607ebc0c7a8b5ee849a"),
+            ("assets/works/yawata-newbuild/image-16.jpg","LINE_ALBUM_八幡市川口東扇8-7_220827_19.jpg","06ac2c7501c7bf5c1885764bff9866ff"),
+            ("assets/works/yawata-newbuild/image-20.jpg","LINE_ALBUM_八幡市川口東扇8-7_220827_25.jpg","a1919d46244f51eeeb58e2beca50be4b"),
+            ("assets/works/yawata-newbuild/image-28.jpg","LINE_ALBUM_八幡市川口東扇8-7_220827_38.jpg","6230385abc6c62f27936a6e7ead575a0"),
+          ]
+
+          def variants(name):
+              out = [name]
+              clean = re.sub(r" \(\d+\)(?=\.[^.]+$)", "", name)
+              if clean not in out:
+                  out.append(clean)
+              stem, dot, ext = clean.rpartition(".")
+              if dot:
+                  for e in ("jpg","JPG","jpeg","JPEG"):
+                      candidate = stem + "." + e
+                      if candidate not in out:
+                          out.append(candidate)
+              return out
+
+          ctx = ssl.create_default_context()
+          prefixes = ("", "case/takakura/", "case/塗装インスタから/")
+          failures = []
+
+          for target, original, expected in FILES:
+              Path(target).parent.mkdir(parents=True, exist_ok=True)
+              found = False
+              for filename in variants(original):
+                  for prefix in prefixes:
+                      url = BASE + quote(prefix + filename, safe="/")
+                      try:
+                          req = Request(url, headers={"User-Agent":"Mozilla/5.0"})
+                          with urlopen(req, timeout=20, context=ctx) as r:
+                              data = r.read()
+                          if hashlib.md5(data).hexdigest() != expected:
+                              continue
+                          Path(target).write_bytes(data)
+                          print("OK", target, "<-", url)
+                          found = True
+                          break
+                      except Exception:
+                          pass
+                  if found:
+                      break
+              if not found:
+                  failures.append((target, original, expected))
+
+          if failures:
+              for x in failures:
+                  print("FAILED", x)
+              raise SystemExit(f"{len(failures)} image(s) could not be imported")
+
+          shutil.copy2("assets/works/demolition-amagasaki/image-06.jpg","assets/works/demolition-amagasaki/cover.jpg")
+          shutil.copy2("assets/works/stair-reform-katano/process-04.jpg","assets/works/stair-reform-katano/cover.jpg")
+          shutil.copy2("assets/works/yawata-newbuild/image-28.jpg","assets/works/yawata-newbuild/cover.jpg")
+          PY
+
+      - name: Commit assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/works
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Import works images into local assets"
+          git push
