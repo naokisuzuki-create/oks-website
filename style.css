@@ -46,7 +46,7 @@ h2{font-size:clamp(2rem,4.2vw,3.45rem);line-height:1.16;margin:.3rem 0 18px}
 .hero{padding:56px 0 76px;background:linear-gradient(180deg,#fbfdff 0%,#f0f6fb 100%);overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:56px;align-items:center;min-height:620px}
 .hero-copy{padding:42px 0}
-.hero h1{font-size:clamp(3.4rem,6.8vw,6.65rem);line-height:.99;margin:12px 0 28px;color:#17285a}
+.hero h1{font-size:clamp(3.4rem,6.8vw,6.65rem);line-height:.99;margin:12px 0 28px;color:#17285a}.hero-line{display:block;white-space:nowrap}
 .hero .lead{font-size:clamp(1rem,1.6vw,1.16rem)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .hero-note{margin-top:18px;font-size:.82rem;color:var(--muted)}
