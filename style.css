@@ -347,3 +347,85 @@
 .strength-message p{font-size:.92rem;line-height:1.85}
 @media(max-width:980px){.strength-message .message-v5-grid{grid-template-columns:150px 1fr;gap:28px}.strength-message .message-v5-grid img{width:150px}}
 @media(max-width:620px){.strength-message{padding:42px 0}.strength-message .message-v5-grid{grid-template-columns:1fr;gap:18px}.strength-message .message-v5-grid img{width:125px}.strength-message h2{font-size:1.9rem}}
+
+
+/* ===== Yamori-aligned OKS real estate / 2026-10-07 ===== */
+.oks-property-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.oks-property-card{background:#fff;border:1px solid #e3e8ee;border-radius:16px;overflow:hidden;box-shadow:0 8px 26px rgba(23,50,83,.07);transition:.18s ease}
+.oks-property-card:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(23,50,83,.11)}
+.oks-property-link{display:block;height:100%}
+.oks-property-image{aspect-ratio:16/9;background:#edf1f4;display:grid;place-items:center;overflow:hidden}
+.oks-property-image img{width:100%;height:100%;object-fit:cover}
+.oks-property-placeholder{width:100%;height:100%;display:grid;place-items:center;background:#edf1f4;color:#8996a3;font-size:.75rem;letter-spacing:.08em}
+.oks-property-body{padding:18px 20px 22px}
+.oks-property-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.oks-property-badge{display:inline-block;background:#2f7fc6;color:#fff;border-radius:999px;padding:5px 10px;font-size:.7rem;font-weight:800}
+.oks-property-price{font-size:1.45rem;font-weight:900;color:#2c7f35}
+.oks-property-body h3{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--navy);font-size:1.16rem;line-height:1.5;margin:10px 0 8px}
+.oks-property-meta{font-size:.78rem;line-height:1.85;color:#59697a;margin:4px 0}
+.oks-property-description{font-size:.82rem;line-height:1.75;color:var(--muted);margin:12px 0 0}
+.oks-property-detail-link{display:inline-block;margin-top:12px;color:#2c7f35;font-weight:800;font-size:.8rem}
+.oks-property-detail-head{display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:start}
+.oks-property-detail-image{min-width:0}
+.oks-gallery{display:flex;flex-direction:column;gap:12px;width:100%;min-width:0}
+.oks-gallery-main{display:flex;width:100%;aspect-ratio:4/3;max-height:560px;padding:10px;border:1px solid #dfe5ea;border-radius:16px;overflow:hidden;background:#f8f9fa;align-items:center;justify-content:center}
+.oks-gallery-main img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center}
+.oks-gallery-thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;width:100%}
+.oks-gallery-thumb{position:relative;width:100%;aspect-ratio:4/3;padding:0;border:2px solid transparent;border-radius:9px;overflow:hidden;background:#eee;cursor:pointer}
+.oks-gallery-thumb.active{border-color:#2f7fc6}
+.oks-gallery-thumb img{width:100%;height:100%;display:block;object-fit:cover}
+.oks-gallery-thumb span{position:absolute;left:4px;bottom:4px;background:rgba(255,255,255,.94);color:var(--navy);font-size:.6rem;font-weight:800;padding:2px 6px;border-radius:999px}
+.oks-property-detail-summary{padding-top:8px}
+.oks-property-detail-summary .section-kicker{margin-top:16px}
+.oks-property-detail-summary h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--navy);font-size:clamp(2rem,3.4vw,3.15rem);line-height:1.35;font-weight:600;margin:6px 0 8px}
+.oks-detail-price{font-size:2rem;font-weight:900;color:#2c7f35;margin:0 0 18px}
+.oks-property-detail-summary>p:not(.section-kicker):not(.oks-detail-price){font-size:.95rem;color:var(--muted);line-height:1.9;margin-bottom:18px}
+.oks-property-specs{margin:42px 0 0;border-top:1px solid var(--line)}
+.oks-property-specs>div{display:grid;grid-template-columns:180px 1fr;border-bottom:1px solid var(--line);padding:15px 0}
+.oks-property-specs dt{font-weight:800;color:var(--navy)}
+.oks-property-specs dd{margin:0;color:#4f5d6a}
+.oks-property-detail-copy{margin-top:46px;padding-top:34px;border-top:1px solid var(--line)}
+.oks-property-detail-copy h2,.oks-property-reform h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--navy);font-size:2rem;font-weight:600;margin:6px 0 14px}
+.oks-property-detail-copy p:last-child,.oks-property-reform p{color:var(--muted);line-height:1.95}
+.oks-property-reform{margin-top:46px;padding:32px;background:#eef5fb;border-radius:16px}
+.oks-property-not-found{text-align:center;padding:50px 0 80px}
+.oks-property-detail-placeholder{aspect-ratio:4/3}
+.oks-estate-hero{background:#f4f7fa;padding:0}
+.oks-estate-hero-grid{display:grid;grid-template-columns:.82fr 1.18fr;min-height:360px;align-items:stretch}
+.oks-estate-hero-copy{display:flex;flex-direction:column;justify-content:center;padding:58px 50px 58px 0}
+.oks-estate-hero-copy h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(2.7rem,4.8vw,4.8rem);font-weight:600;color:var(--navy);margin:7px 0 16px}
+.oks-estate-hero-copy p:last-child{color:var(--muted);line-height:1.95}
+.oks-estate-hero-photo{overflow:hidden}
+.oks-estate-hero-photo img{width:100%;height:100%;object-fit:cover;min-height:360px}
+.oks-estate-heading-row{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px}
+.oks-estate-heading-row h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:2.2rem;color:var(--navy);margin:4px 0 0}
+.oks-estate-heading-row a{color:#2c7f35;font-weight:800}
+.oks-estate-consult{background:#f7f9fb}
+.oks-estate-consult-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.oks-estate-consult-grid article{background:#fff;border:1px solid var(--line);padding:24px}
+.oks-estate-consult-grid h3{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--navy);font-size:1.25rem;margin:0 0 8px}
+.oks-estate-consult-grid p{font-size:.86rem;color:var(--muted);margin:0}
+.oks-estate-contact{text-align:center;margin-top:28px}
+.oks-listing-head{padding:66px 0 44px;background:#f5f7f9}
+.oks-listing-head h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(2.5rem,4.5vw,4.2rem);font-weight:600;color:var(--navy);margin:6px 0 12px}
+.oks-listing-head p:last-child{color:var(--muted);margin:0}
+.oks-listing-section{padding:56px 0 82px}
+.oks-property-detail-page{padding:48px 0 80px}
+@media(max-width:980px){
+  .oks-property-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .oks-property-detail-head{grid-template-columns:1fr;gap:30px}
+  .oks-estate-hero-grid{grid-template-columns:1fr}
+  .oks-estate-hero-copy{padding:48px 0 34px}
+  .oks-estate-hero-photo img{min-height:0;aspect-ratio:16/8}
+  .oks-estate-consult-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .oks-property-grid{grid-template-columns:1fr}
+  .oks-gallery-thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .oks-gallery-main{max-height:none}
+  .oks-property-specs>div{grid-template-columns:110px 1fr}
+  .oks-estate-heading-row{display:block}
+  .oks-estate-heading-row a{display:inline-block;margin-top:12px}
+  .oks-estate-consult-grid{grid-template-columns:1fr}
+  .oks-property-reform{padding:24px}
+}
