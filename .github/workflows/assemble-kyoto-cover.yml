@@ -15,7 +15,7 @@ jobs:
 
       - name: Assemble and verify cover
         run: |
-          cat .tmp/kyoto-cover/part00 .tmp/kyoto-cover/part01 .tmp/kyoto-cover/part02 .tmp/kyoto-cover/part03 .tmp/kyoto-cover/part04 .tmp/kyoto-cover/part05 > assets/works/kyoto-f-house/cover-main.webp
+          cat .tmp/kyoto-cover/part00 .tmp/kyoto-cover/part01 .tmp/kyoto-cover/p020 .tmp/kyoto-cover/p021 .tmp/kyoto-cover/part03 .tmp/kyoto-cover/part04 .tmp/kyoto-cover/part05 > assets/works/kyoto-f-house/cover-main.webp
           test "$(stat -c%s assets/works/kyoto-f-house/cover-main.webp)" -eq 33758
           echo "3374d044f94bc7ece675cba1813cdf7233f43ba1b1bc21403f84759748526d06  assets/works/kyoto-f-house/cover-main.webp" | sha256sum -c -
 
