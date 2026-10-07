@@ -37,4 +37,26 @@ document.addEventListener('DOMContentLoaded',()=>{
       alert('現在はデザイン確認用です。送信機能は公開前に接続します。');
     });
   }
+  const strengthSlider=document.querySelector('[data-strength-slider]');
+  if(strengthSlider){
+    const slides=[...strengthSlider.querySelectorAll('.strengths-hero-slide')];
+    const dots=[...document.querySelectorAll('[data-strength-dot]')];
+    let current=0;
+    let timer=null;
+    const show=index=>{
+      current=(index+slides.length)%slides.length;
+      slides.forEach((slide,i)=>slide.classList.toggle('active',i===current));
+      dots.forEach((dot,i)=>dot.classList.toggle('active',i===current));
+    };
+    const start=()=>{
+      if(timer)clearInterval(timer);
+      timer=setInterval(()=>show(current+1),5000);
+    };
+    dots.forEach((dot,i)=>dot.addEventListener('click',()=>{
+      show(i);
+      start();
+    }));
+    show(0);
+    start();
+  }
 });
