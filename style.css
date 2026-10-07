@@ -268,3 +268,53 @@
   .strength-message .message-v5-grid img{width:140px}
   .strengths-page .company-section{padding:48px 0 56px}
 }
+
+
+/* ===== live real estate properties / 2026-10-07 ===== */
+.property-feed-status{color:var(--muted);margin:0 0 18px}
+.property-live-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.property-live-card{display:block;border:1px solid var(--line);background:#fff;transition:transform .22s ease,box-shadow .22s ease}
+.property-live-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(22,45,70,.10)}
+.property-live-photo{position:relative;aspect-ratio:16/10;overflow:hidden;background:#edf1f3}
+.property-live-photo img{width:100%;height:100%;object-fit:cover}
+.property-live-photo>span{position:absolute;left:14px;bottom:0;background:rgba(22,51,92,.92);color:#fff;padding:6px 10px;font-size:.68rem;font-weight:800}
+.property-live-placeholder{display:grid;place-items:center;width:100%;height:100%;color:#8a97a3;font-size:.78rem;letter-spacing:.08em;background:#edf1f3}
+.property-live-body{padding:18px 20px 20px}
+.property-live-type{font-size:.72rem;color:var(--blue);font-weight:800;margin:0 0 4px}
+.property-live-body h3{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--navy);font-size:1.18rem;line-height:1.5;margin:0 0 8px}
+.property-live-body>strong{display:block;color:var(--navy);font-size:1.4rem;margin-bottom:12px}
+.property-live-body dl{margin:0;border-top:1px solid var(--line)}
+.property-live-body dl div{display:grid;grid-template-columns:58px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.78rem}
+.property-live-body dt{color:var(--muted)}
+.property-live-body dd{margin:0;color:var(--ink)}
+.property-live-description{font-size:.82rem;line-height:1.75;color:var(--muted);margin:13px 0}
+.property-live-body b{font-size:.78rem;color:var(--blue)}
+.property-live-body b i{font-style:normal;margin-left:4px}
+.property-breadcrumb{font-size:.78rem;color:var(--muted);margin:0 0 28px}
+.property-breadcrumb a{color:var(--blue)}
+.property-detail-head{display:grid;grid-template-columns:1.25fr .75fr;gap:52px;align-items:start}
+.property-main-image{overflow:hidden;background:#edf1f3}
+.property-main-image img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.property-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+.property-thumb{position:relative;border:2px solid transparent;background:none;padding:0;cursor:pointer;overflow:hidden}
+.property-thumb.active{border-color:var(--blue)}
+.property-thumb img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.property-thumb span{position:absolute;left:0;bottom:0;background:rgba(22,51,92,.9);color:#fff;padding:3px 6px;font-size:.6rem}
+.property-detail-placeholder{display:grid;place-items:center;aspect-ratio:4/3;background:#edf1f3;color:#8996a3}
+.property-detail-summary{padding-top:10px}
+.property-detail-badge{display:inline-block;background:#eef5fb;color:var(--blue);padding:6px 10px;font-size:.7rem;font-weight:800;margin-bottom:18px}
+.property-detail-summary h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--navy);font-size:clamp(2rem,3.5vw,3.3rem);line-height:1.3;font-weight:600;margin:6px 0 14px}
+.property-detail-summary>p:not(.section-kicker):not(.property-detail-price){color:var(--muted);line-height:1.9}
+.property-detail-price{font-size:1.9rem;font-weight:900;color:var(--navy);margin:0 0 16px}
+.property-specs{display:grid;grid-template-columns:repeat(2,1fr);margin:46px 0 0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.property-specs>div{display:grid;grid-template-columns:120px 1fr;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.property-specs dt,.property-specs dd{padding:13px 15px}
+.property-specs dt{background:#f6f8fa;color:var(--muted);font-size:.78rem}
+.property-specs dd{margin:0;font-size:.86rem}
+.property-detail-copy{margin-top:48px;padding-top:36px;border-top:1px solid var(--line)}
+.property-detail-copy h2,.property-reform-box h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;color:var(--navy);font-size:2rem;font-weight:600;margin:6px 0 14px}
+.property-detail-copy p:last-child,.property-reform-box p{color:var(--muted);line-height:1.95}
+.property-reform-box{margin-top:48px;padding:34px;background:#eef5fb}
+.property-not-found{text-align:center;padding:70px 0}
+@media(max-width:900px){.property-live-grid{grid-template-columns:repeat(2,1fr)}.property-detail-head{grid-template-columns:1fr;gap:32px}.property-specs{grid-template-columns:1fr}}
+@media(max-width:620px){.property-live-grid{grid-template-columns:1fr}.property-thumbs{grid-template-columns:repeat(4,1fr)}.property-specs>div{grid-template-columns:96px 1fr}.property-reform-box{padding:24px}}
