@@ -318,3 +318,22 @@
 .property-not-found{text-align:center;padding:70px 0}
 @media(max-width:900px){.property-live-grid{grid-template-columns:repeat(2,1fr)}.property-detail-head{grid-template-columns:1fr;gap:32px}.property-specs{grid-template-columns:1fr}}
 @media(max-width:620px){.property-live-grid{grid-template-columns:1fr}.property-thumbs{grid-template-columns:repeat(4,1fr)}.property-specs>div{grid-template-columns:96px 1fr}.property-reform-box{padding:24px}}
+
+
+/* ===== strengths message further compact / 2026-10-07 ===== */
+.strength-message{padding:46px 0}
+.strength-message .message-v5-grid{grid-template-columns:165px 1fr;gap:34px}
+.strength-message .message-v5-grid img{width:165px;aspect-ratio:4/5}
+.strength-message h2{font-size:clamp(1.7rem,2.6vw,2.35rem)}
+.strength-message .section-kicker{margin-bottom:3px}
+.strength-message p{font-size:.92rem;line-height:1.85}
+@media(max-width:980px){
+  .strength-message .message-v5-grid{grid-template-columns:150px 1fr;gap:28px}
+  .strength-message .message-v5-grid img{width:150px}
+}
+@media(max-width:620px){
+  .strength-message{padding:42px 0}
+  .strength-message .message-v5-grid{grid-template-columns:1fr;gap:18px}
+  .strength-message .message-v5-grid img{width:125px}
+  .strength-message h2{font-size:1.9rem}
+}
