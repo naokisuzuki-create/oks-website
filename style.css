@@ -337,3 +337,13 @@
   .strength-message .message-v5-grid img{width:125px}
   .strength-message h2{font-size:1.9rem}
 }
+
+/* strengths message compact v2 */
+.strength-message{padding:46px 0}
+.strength-message .message-v5-grid{grid-template-columns:165px 1fr;gap:34px}
+.strength-message .message-v5-grid img{width:165px;aspect-ratio:4/5}
+.strength-message h2{font-size:clamp(1.7rem,2.6vw,2.35rem)}
+.strength-message .section-kicker{margin-bottom:3px}
+.strength-message p{font-size:.92rem;line-height:1.85}
+@media(max-width:980px){.strength-message .message-v5-grid{grid-template-columns:150px 1fr;gap:28px}.strength-message .message-v5-grid img{width:150px}}
+@media(max-width:620px){.strength-message{padding:42px 0}.strength-message .message-v5-grid{grid-template-columns:1fr;gap:18px}.strength-message .message-v5-grid img{width:125px}.strength-message h2{font-size:1.9rem}}
