@@ -436,3 +436,49 @@
 .oks-estate-hero-image img{display:block;width:100%;height:320px;object-fit:cover;object-position:center}
 @media(max-width:900px){.oks-estate-hero-image img{height:260px}}
 @media(max-width:620px){.oks-estate-hero-image img{height:210px}}
+
+
+/* ===== column index + article pages / 2026-10-07 ===== */
+.column-hero{padding:78px 0 58px;background:linear-gradient(180deg,#f1f6fa,#fff)}
+.column-hero h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(2.8rem,5vw,4.6rem);font-weight:600;color:var(--navy);margin:6px 0 12px}
+.column-hero p:last-child{color:var(--muted);margin:0}
+.column-list-section{padding:42px 0 86px;background:#fff}
+.column-filter{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:38px}
+.column-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 22px}
+.column-card{display:block}
+.column-card[hidden]{display:none}
+.column-card-photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eef2f5}
+.column-card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.column-card:hover .column-card-photo img{transform:scale(1.025)}
+.column-card-photo span{position:absolute;left:12px;top:12px;background:rgba(45,121,199,.92);color:#fff;padding:6px 10px;font-size:.68rem;font-weight:850;border-radius:999px}
+.column-card-body{padding:15px 2px 0}
+.column-card-body h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:1.12rem;line-height:1.55;color:var(--navy);margin:0 0 8px}
+.column-card-body p{font-size:.83rem;line-height:1.75;color:var(--muted);margin:0 0 12px}
+.column-card-body b{font-size:.78rem;color:var(--blue)}
+.column-empty{text-align:center;color:var(--muted);padding:40px 0}
+
+.column-article-head{padding:54px 0 28px;background:#fff}
+.column-breadcrumb{font-size:.74rem;color:var(--muted);margin-bottom:26px}
+.column-article-meta{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+.column-article-meta span{background:#edf5fb;color:var(--blue);padding:5px 10px;border-radius:999px;font-size:.7rem;font-weight:850}
+.column-article-head h1{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(2.25rem,4.5vw,4rem);line-height:1.35;font-weight:600;color:var(--navy);max-width:960px;margin:0 0 18px}
+.column-article-lead{max-width:820px;color:var(--muted);font-size:1rem;line-height:1.95;margin:0}
+.column-article-cover{padding:0 0 46px}
+.column-article-cover img{width:100%;max-height:620px;object-fit:cover;background:#eef2f5}
+.column-article-body{padding:0 0 84px}
+.column-article-content{max-width:860px;margin:auto}
+.column-article-content h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:1.75rem;line-height:1.5;color:var(--navy);border-left:4px solid var(--blue);padding-left:16px;margin:44px 0 18px}
+.column-article-content h3{font-size:1.15rem;color:var(--navy);margin:28px 0 10px}
+.column-article-content p{color:#47596b;line-height:2;margin:0 0 18px}
+.column-article-content ul{margin:0 0 20px;padding-left:1.4em;color:#47596b;line-height:1.9}
+.column-article-image{margin:30px 0}
+.column-article-image img{width:100%;max-height:560px;object-fit:contain;background:#f5f7f8}
+.column-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:28px 0}
+.column-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#eef2f5}
+.column-note{background:#f2f7fb;border-left:4px solid var(--blue);padding:20px 22px;margin:30px 0;color:#39516a}
+.column-article-cta{margin-top:52px;padding:28px;background:#f5f8fb;text-align:center}
+.column-article-cta h3{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:1.5rem;margin:0 0 10px}
+.column-article-cta p{margin-bottom:18px}
+.column-back{text-align:center;margin-top:34px}
+@media(max-width:980px){.column-card-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.column-hero{padding:58px 0 42px}.column-list-section{padding:30px 0 60px}.column-filter{justify-content:flex-start;gap:20px;overflow-x:auto;flex-wrap:nowrap}.column-card-grid{grid-template-columns:1fr}.column-article-head{padding:42px 0 24px}.column-article-cover{padding-bottom:30px}.column-article-body{padding-bottom:60px}.column-article-content h2{font-size:1.5rem}.column-gallery{grid-template-columns:1fr}}
