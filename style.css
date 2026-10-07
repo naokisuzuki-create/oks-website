@@ -429,3 +429,8 @@
   .oks-estate-consult-grid{grid-template-columns:1fr}
   .oks-property-reform{padding:24px}
 }
+
+
+/* real estate full hero image */
+.oks-estate-hero-image{width:100%;background:#eef3f7;overflow:hidden}
+.oks-estate-hero-image img{display:block;width:100%;height:auto}
