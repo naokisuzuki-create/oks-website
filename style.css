@@ -131,3 +131,11 @@
 .finish-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 @media(max-width:820px){.case-summary-grid{grid-template-columns:1fr;gap:36px}.process-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.case-head{padding:42px 0 26px}.case-cover{padding-bottom:40px}.case-summary,.case-section{padding:54px 0}.ba-pair{padding:14px}.ba-pair>div,.finish-grid,.process-grid{grid-template-columns:1fr}.ba-pair img{aspect-ratio:16/11}}
+
+
+/* homepage works story */
+.home-works-head{padding-bottom:30px}
+.home-works-head h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(2.1rem,3.8vw,3.25rem);font-weight:500;letter-spacing:.16em;margin:0;color:var(--navy)}
+.home-works-section{padding-top:8px}
+.home-works-more{text-align:center;margin-top:42px}
+@media(max-width:620px){.home-works-head{padding-bottom:24px}.home-works-section{padding-top:4px}.home-works-more{margin-top:30px}}
