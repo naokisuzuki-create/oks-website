@@ -1638,3 +1638,83 @@
   .column-card[data-category~="equipment"] .column-card-body::before{content:"設備・防犯"}
   .column-card[data-category~="maintenance"] .column-card-body::before{content:"メンテナンス・災害対策"}
 }
+
+
+/* ===== column detail mobile optimization / 2026-10-08 ===== */
+@media(max-width:620px){
+  .column-article-head{padding:34px 0 20px}
+  .column-breadcrumb{
+    font-size:.68rem;
+    line-height:1.55;
+    margin-bottom:16px;
+  }
+  .column-article-meta{margin-bottom:10px}
+  .column-article-meta span{
+    font-size:.64rem;
+    padding:4px 8px;
+  }
+  .column-article-head h1{
+    font-size:1.82rem;
+    line-height:1.4;
+    margin:0 0 12px;
+  }
+  .column-article-lead{
+    font-size:.9rem;
+    line-height:1.8;
+  }
+
+  .column-article-cover{padding:0 0 24px}
+  .column-article-cover img{
+    width:100%;
+    max-height:none;
+    aspect-ratio:16/10;
+    object-fit:cover;
+  }
+
+  /* Keep body text size and line-height unchanged; only tighten structure */
+  .column-article-body{padding:0 0 52px}
+  .column-article-content h2{
+    font-size:1.45rem;
+    line-height:1.5;
+    padding-left:12px;
+    margin:34px 0 16px;
+  }
+  .column-article-content h3{
+    margin:24px 0 10px;
+  }
+  .column-note{
+    padding:16px 18px;
+    margin:24px 0;
+  }
+
+  .column-gallery{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:0 14px 10px 0;
+    margin-right:-14px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .column-gallery::-webkit-scrollbar{display:none}
+  .column-gallery img{
+    flex:0 0 min(82vw,340px);
+    scroll-snap-align:start;
+    aspect-ratio:4/3;
+    object-fit:cover;
+  }
+
+  .column-article-cta{
+    margin-top:36px;
+    padding:22px 18px;
+  }
+  .column-article-cta h3{
+    font-size:1.25rem;
+    line-height:1.5;
+  }
+  .column-article-cta .btn{
+    width:100%;
+  }
+  .column-back{margin-top:24px}
+}
