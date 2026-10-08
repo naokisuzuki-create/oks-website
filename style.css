@@ -817,3 +817,9 @@
   .contact-v5{padding:46px 0}
   .contact-v5 h2{font-size:1.8rem}
 }
+
+/* mobile homepage works heading alignment */
+@media(max-width:620px){
+  .home-works-head{text-align:left}
+  .home-works-head .home-works-title-row{text-align:left}
+}
