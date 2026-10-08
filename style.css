@@ -1778,3 +1778,143 @@
     height:240px;
   }
 }
+
+
+/* ===== contact page redesign / 2026-10-08 ===== */
+.contact-story-head{background:#fff}
+.contact-page-section{padding:64px 0 82px;background:#f7f9fb}
+.contact-page-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:64px;
+  align-items:start;
+}
+.contact-page-info{padding-top:10px}
+.contact-page-info h2{
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  color:var(--navy);
+  font-size:clamp(2rem,3.4vw,3rem);
+  line-height:1.45;
+  font-weight:600;
+  margin:8px 0 18px;
+}
+.contact-page-info>p:not(.section-kicker){
+  color:var(--muted);
+  line-height:1.95;
+  margin:0;
+}
+.contact-phone-box{
+  margin-top:34px;
+  padding:24px 26px;
+  background:#fff;
+  border:1px solid var(--line);
+}
+.contact-phone-box span{
+  display:block;
+  font-size:.78rem;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.contact-phone-box a{
+  display:block;
+  font-family:"Times New Roman",serif;
+  color:var(--navy);
+  font-size:2rem;
+  line-height:1.2;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+.contact-phone-box small{
+  display:block;
+  color:var(--muted);
+  margin-top:8px;
+}
+.contact-form-wrap{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:34px 36px;
+}
+.contact-form-wrap>h2{
+  font-family:"Yu Mincho","Hiragino Mincho ProN",serif;
+  color:var(--navy);
+  font-size:1.8rem;
+  font-weight:600;
+  margin:0 0 24px;
+}
+.contact-form{max-width:none}
+.contact-form .field{gap:7px}
+.contact-form label{font-size:.9rem;color:var(--navy)}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  border-radius:8px;
+  border-color:#cbd6e2;
+}
+.contact-form .btn{
+  width:100%;
+  background:var(--blue);
+}
+.contact-demo-note{
+  font-size:.76rem;
+  line-height:1.6;
+  color:var(--muted);
+  text-align:center;
+  margin:2px 0 0;
+}
+
+@media(max-width:800px){
+  .contact-page-grid{grid-template-columns:1fr;gap:36px}
+}
+
+@media(max-width:620px){
+  .contact-story-head{
+    padding:42px 0 26px;
+    text-align:left;
+  }
+  .contact-story-head .works-story-script{display:none}
+  .contact-story-head h1{
+    font-size:1.9rem;
+    margin:4px 0 8px;
+  }
+  .contact-story-head .works-story-rule{
+    justify-content:flex-start;
+    margin:12px 0 14px;
+  }
+  .contact-story-head .works-story-lead{
+    font-size:.86rem;
+    line-height:1.8;
+    margin:0;
+  }
+  .contact-story-head .works-story-lead br{display:none}
+  .contact-page-section{padding:34px 0 56px}
+  .contact-page-grid{gap:30px}
+  .contact-page-info{padding:0}
+  .contact-page-info h2{
+    font-size:1.65rem;
+    line-height:1.5;
+    margin-bottom:12px;
+  }
+  .contact-page-info>p:not(.section-kicker){
+    font-size:.88rem;
+    line-height:1.8;
+  }
+  .contact-phone-box{
+    margin-top:22px;
+    padding:18px 20px;
+  }
+  .contact-phone-box a{font-size:1.75rem}
+  .contact-form-wrap{
+    padding:24px 18px;
+  }
+  .contact-form-wrap>h2{
+    font-size:1.45rem;
+    margin-bottom:20px;
+  }
+  .contact-form{gap:16px}
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea{
+    padding:13px 14px;
+  }
+  .contact-form textarea{min-height:140px}
+}
