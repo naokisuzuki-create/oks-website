@@ -1392,3 +1392,34 @@
     font-size:.75rem;
   }
 }
+
+
+/* ===== real estate mobile title hero / 2026-10-08 ===== */
+.realestate-mobile-head{display:none}
+
+@media(max-width:620px){
+  .realestate-mobile-head{
+    display:block;
+    padding:42px 0 24px;
+    text-align:left;
+    background:#fff;
+  }
+  .realestate-mobile-head .works-story-script{display:none}
+  .realestate-mobile-head .section-kicker{margin-bottom:6px}
+  .realestate-mobile-head h1{
+    font-size:1.9rem;
+    letter-spacing:.08em;
+  }
+  .realestate-mobile-head .works-story-rule{
+    justify-content:flex-start;
+    margin:14px 0;
+  }
+  .realestate-mobile-head .works-story-lead{
+    font-size:.9rem;
+    line-height:1.75;
+  }
+  .realestate-mobile-head + .oks-estate-hero-image{display:none}
+  .realestate-mobile-head + .oks-estate-hero-image + .content-section{
+    padding:34px 0 52px;
+  }
+}
