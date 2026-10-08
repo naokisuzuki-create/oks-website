@@ -1747,3 +1747,9 @@
     object-fit:contain;
   }
 }
+
+
+/* ===== home works mobile: keep only one list link / 2026-10-08 ===== */
+@media(max-width:620px){
+  .home-works-title-row>.text-link{display:none}
+}
