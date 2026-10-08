@@ -1161,3 +1161,42 @@
     font-size:.55rem;
   }
 }
+
+
+/* ===== shared work detail before/after mobile layout / 2026-10-08 ===== */
+@media(max-width:620px){
+  .work-ba-mobile .ba-grid{gap:0}
+  .work-ba-mobile .ba-pair{
+    padding:22px 0;
+    border-top:1px solid var(--line);
+    background:transparent;
+  }
+  .work-ba-mobile .ba-pair:last-child{border-bottom:1px solid var(--line)}
+  .work-ba-mobile .ba-pair h3{
+    font-size:1.2rem;
+    margin:0 0 6px;
+  }
+  .work-ba-mobile .ba-note{
+    font-size:.82rem;
+    line-height:1.65;
+    margin:0 0 12px;
+  }
+  .work-ba-mobile .ba-pair>div{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+  .work-ba-mobile .ba-pair figure{
+    min-width:0;
+    background:#eef2f4;
+  }
+  .work-ba-mobile .ba-pair img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+  }
+  .work-ba-mobile .ba-pair figure span{
+    padding:4px 6px;
+    font-size:.55rem;
+  }
+}
