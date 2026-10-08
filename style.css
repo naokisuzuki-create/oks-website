@@ -823,3 +823,126 @@
   .home-works-head{text-align:left}
   .home-works-head .home-works-title-row{text-align:left}
 }
+
+
+/* ===== strengths page mobile optimization / 2026-10-08 ===== */
+@media(max-width:620px){
+  /* Hero: retain the visual, reduce height and actions */
+  .strengths-hero,
+  .strengths-hero-inner{min-height:500px}
+  .strengths-hero-copy{padding:54px 0 38px}
+  .strengths-hero-copy h1{font-size:1.95rem;line-height:1.35;margin:8px 0 18px}
+  .strengths-hero-copy>p:not(.section-kicker){font-size:.92rem;line-height:1.8}
+  .strengths-hero-actions{display:block;margin-top:22px}
+  .strengths-hero-actions .strengths-ghost{display:none}
+  .strengths-hero-actions .btn{width:auto}
+  .strengths-hero-dots{margin-top:20px}
+
+  /* Services: text-only, informational, not button-like */
+  .strengths-services{padding:50px 0}
+  .strengths-heading{margin-bottom:26px}
+  .strengths-heading.centered{text-align:left}
+  .strengths-heading h2{font-size:1.8rem;line-height:1.4}
+  .strengths-heading p:last-child{font-size:.92rem;line-height:1.8}
+  .strengths-service-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .strengths-service-card{
+    border:0;
+    border-bottom:1px solid var(--line);
+    background:transparent;
+    padding:14px 8px 14px 0;
+  }
+  .strengths-service-card:nth-child(even){padding-left:14px}
+  .strengths-service-card img{display:none}
+  .strengths-service-card div{padding:0;text-align:left}
+  .strengths-service-card span{display:none}
+  .strengths-service-card h3{font-size:1rem;margin:0 0 3px}
+  .strengths-service-card p{font-size:.75rem;line-height:1.5}
+  .strengths-one-stop{display:none}
+
+  /* Cases: keep the explanations, remove large imagery */
+  .strengths-cases{padding:52px 0}
+  .strengths-case-grid{gap:0}
+  .strengths-case-card{
+    border:0;
+    border-top:1px solid var(--line);
+    padding:22px 0;
+  }
+  .strengths-case-card:last-child{border-bottom:1px solid var(--line)}
+  .strengths-case-num{
+    width:auto;
+    height:auto;
+    display:inline-block;
+    border-radius:0;
+    background:transparent;
+    color:var(--blue);
+    font-size:.68rem;
+    letter-spacing:.12em;
+    margin-bottom:8px;
+  }
+  .strengths-case-card h3{font-size:1.25rem;line-height:1.5;margin:0 0 10px}
+  .strengths-case-photo,
+  .strengths-before-after{display:none}
+  .strengths-case-card ol{margin:0 0 10px;gap:5px}
+  .strengths-case-card li{font-size:.7rem;padding:5px 8px}
+  .strengths-case-card>p{font-size:.88rem;line-height:1.8}
+
+  /* Vacant house: one image only */
+  .strengths-vacant{padding:52px 0}
+  .strengths-vacant-grid{display:block}
+  .strengths-vacant-copy h2{font-size:1.8rem;line-height:1.45;margin-bottom:16px}
+  .strengths-vacant-copy p{font-size:.92rem;line-height:1.85}
+  .strengths-vacant-photos{
+    display:block;
+    margin-top:24px;
+  }
+  .strengths-vacant-photos img{display:none}
+  .strengths-vacant-photos .main{
+    display:block;
+    width:100%;
+    height:auto;
+    min-height:0;
+    aspect-ratio:16/10;
+    object-fit:cover;
+  }
+
+  /* Representative message: compact horizontal block */
+  .strengths-page .strength-message{padding:38px 0}
+  .strengths-page .strength-message .message-v5-grid{
+    display:grid;
+    grid-template-columns:92px minmax(0,1fr);
+    gap:18px;
+    align-items:center;
+  }
+  .strengths-page .strength-message .message-v5-grid img{
+    width:92px;
+    aspect-ratio:4/5;
+  }
+  .strengths-page .strength-message h2{font-size:1.5rem;margin-bottom:6px}
+  .strengths-page .strength-message p{font-size:.8rem;line-height:1.65;margin:0}
+
+  /* Company profile: stacked labels and values */
+  .strengths-page .company-section{padding:44px 0 50px}
+  .strengths-page .company-section .section-title-row{margin-bottom:16px}
+  .strengths-page .company-section .section-lead{font-size:.78rem;line-height:1.6}
+  .strengths-page .company-table,
+  .strengths-page .company-table tbody,
+  .strengths-page .company-table tr,
+  .strengths-page .company-table th,
+  .strengths-page .company-table td{display:block;width:100%}
+  .strengths-page .company-table tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .strengths-page .company-table th,
+  .strengths-page .company-table td{border:0;padding:0}
+  .strengths-page .company-table th{font-size:.72rem;margin-bottom:4px}
+  .strengths-page .company-table td{font-size:.9rem;line-height:1.6}
+
+  /* Final CTA: concise */
+  .strengths-final-cta{padding:48px 0}
+  .strengths-final-cta h2{font-size:1.8rem;line-height:1.45}
+  .strengths-final-cta p{font-size:.9rem;line-height:1.75}
+  .strengths-final-actions{margin-top:22px}
+}
