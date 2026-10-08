@@ -631,3 +631,16 @@
   .home-column-main-body{padding:20px}
   .home-column-main-body h3{font-size:1.3rem}
 }
+
+/* strengths hero headline: keep the two intended lines intact */
+.strengths-hero-copy{max-width:1040px}
+.strengths-hero-copy h1{font-size:clamp(2.25rem,3.65vw,3.55rem);line-height:1.28}
+.strengths-hero-copy h1 span{display:block;white-space:nowrap}
+@media(max-width:900px){
+  .strengths-hero-copy{max-width:760px}
+  .strengths-hero-copy h1{font-size:clamp(2.15rem,5.3vw,3rem)}
+  .strengths-hero-copy h1 span{white-space:normal}
+}
+@media(max-width:620px){
+  .strengths-hero-copy h1{font-size:2rem}
+}
