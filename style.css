@@ -1200,3 +1200,124 @@
     font-size:.55rem;
   }
 }
+
+
+/* ===== real estate page mobile optimization / 2026-10-08 ===== */
+@media(max-width:620px){
+  .oks-estate-hero-image{
+    max-height:260px;
+    overflow:hidden;
+  }
+  .oks-estate-hero-image img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    object-position:center;
+  }
+
+  .oks-estate-hero-image + .content-section{
+    padding:48px 0 52px;
+  }
+  .oks-estate-heading-row{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .oks-estate-heading-row h2{
+    font-size:1.8rem;
+  }
+  .oks-estate-heading-row a{
+    margin-top:0;
+    font-size:.78rem;
+    white-space:nowrap;
+  }
+
+  .oks-estate-hero-image + .content-section .oks-property-grid{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    overscroll-behavior-inline:contain;
+    padding:2px 14px 12px 0;
+    margin-right:-14px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .oks-estate-hero-image + .content-section .oks-property-grid::-webkit-scrollbar{display:none}
+  .oks-estate-hero-image + .content-section .oks-property-card{
+    flex:0 0 min(84vw,350px);
+    scroll-snap-align:start;
+  }
+  .oks-estate-hero-image + .content-section .oks-property-image{
+    aspect-ratio:16/10;
+  }
+  .oks-estate-hero-image + .content-section .oks-property-body{
+    padding:15px 16px 18px;
+  }
+  .oks-estate-hero-image + .content-section .oks-property-price{
+    font-size:1.25rem;
+  }
+  .oks-estate-hero-image + .content-section .oks-property-body h3{
+    font-size:1.04rem;
+    margin:8px 0 6px;
+  }
+  .oks-estate-hero-image + .content-section .oks-property-meta{
+    font-size:.74rem;
+    line-height:1.65;
+    margin:3px 0;
+  }
+  .oks-estate-hero-image + .content-section .oks-property-description,
+  .oks-estate-hero-image + .content-section .oks-property-detail-link{
+    display:none;
+  }
+
+  .oks-estate-consult{
+    padding:50px 0 54px;
+  }
+  .oks-estate-consult .section-title-row{
+    margin-bottom:16px;
+  }
+  .oks-estate-consult .section-title-row h2{
+    font-size:1.8rem;
+  }
+  .oks-estate-consult-grid{
+    display:block;
+    border-top:1px solid var(--line);
+  }
+  .oks-estate-consult-grid article{
+    background:transparent;
+    border:0;
+    border-bottom:1px solid var(--line);
+    padding:16px 0;
+  }
+  .oks-estate-consult-grid h3{
+    font-size:1.08rem;
+    margin:0 0 4px;
+  }
+  .oks-estate-consult-grid p{
+    font-size:.82rem;
+    line-height:1.65;
+  }
+  .oks-estate-contact{
+    margin-top:22px;
+    text-align:left;
+  }
+  .oks-estate-contact .btn{
+    width:100%;
+  }
+
+  .one-stop-copy{
+    padding:46px 0 50px;
+  }
+  .one-stop-copy h2{
+    font-size:1.6rem;
+    line-height:1.5;
+    margin:6px 0 12px;
+  }
+  .one-stop-copy .section-lead{
+    font-size:.9rem;
+    line-height:1.8;
+  }
+}
