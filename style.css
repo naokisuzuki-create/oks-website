@@ -644,3 +644,34 @@
 @media(max-width:620px){
   .strengths-hero-copy h1{font-size:2rem}
 }
+
+/* ===== site header size + phone / 2026-10-08 ===== */
+.header .nav{min-height:82px}
+.header .brand img{width:52px;height:auto}
+.header .brand span{font-size:1.02rem}
+.header .navlinks{gap:20px}
+.header .navlinks>a:not(.nav-cta):not(.nav-phone){font-size:.94rem}
+.header .nav-phone{
+  display:inline-flex;
+  align-items:baseline;
+  gap:7px;
+  color:var(--navy);
+  font-size:1rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+.header .nav-phone span{
+  color:var(--blue);
+  font-size:.68rem;
+  letter-spacing:.08em;
+}
+.header .nav-cta{padding:12px 21px}
+@media(max-width:1120px){
+  .header .navlinks{gap:14px}
+  .header .nav-phone{font-size:.9rem}
+}
+@media(max-width:980px){
+  .header .nav{min-height:72px}
+  .header .brand img{width:46px}
+  .header .nav-phone{display:none}
+}
