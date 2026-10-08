@@ -1321,3 +1321,74 @@
     line-height:1.8;
   }
 }
+
+
+/* ===== real estate hero fix + property listing mobile / 2026-10-08 ===== */
+@media(max-width:620px){
+  .oks-estate-hero-image{
+    max-height:none;
+    overflow:visible;
+  }
+  .oks-estate-hero-image img{
+    width:100%;
+    height:auto;
+    object-fit:initial;
+    object-position:initial;
+  }
+
+  .property-story-head{
+    padding:42px 0 24px;
+    text-align:left;
+  }
+  .property-story-head .works-story-script{display:none}
+  .property-story-head .section-kicker{margin-bottom:6px}
+  .property-story-head h1{
+    font-size:1.9rem;
+    letter-spacing:.08em;
+  }
+  .property-story-head .works-story-rule{
+    justify-content:flex-start;
+    margin:14px 0;
+  }
+  .property-story-head .works-story-lead{
+    font-size:.9rem;
+    line-height:1.75;
+  }
+  .property-story-head .works-story-lead br{display:none}
+
+  .oks-listing-section{
+    padding:24px 0 56px;
+  }
+  .oks-listing-section .oks-property-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  .oks-listing-section .oks-property-card{
+    border-radius:14px;
+  }
+  .oks-listing-section .oks-property-image{
+    aspect-ratio:16/9;
+  }
+  .oks-listing-section .oks-property-body{
+    padding:15px 16px 18px;
+  }
+  .oks-listing-section .oks-property-price{
+    font-size:1.3rem;
+  }
+  .oks-listing-section .oks-property-body h3{
+    font-size:1.05rem;
+    margin:8px 0 6px;
+  }
+  .oks-listing-section .oks-property-meta{
+    font-size:.76rem;
+    line-height:1.7;
+  }
+  .oks-listing-section .oks-property-description{
+    display:none;
+  }
+  .oks-listing-section .oks-property-detail-link{
+    margin-top:10px;
+    font-size:.75rem;
+  }
+}
