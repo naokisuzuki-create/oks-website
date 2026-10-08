@@ -1918,3 +1918,17 @@
   }
   .contact-form textarea{min-height:140px}
 }
+
+
+/* ===== contact consultation heading line control / 2026-10-08 ===== */
+.contact-page-info h2 span{display:block}
+@media(min-width:801px){
+  .contact-page-info h2{
+    font-size:clamp(1.9rem,2.65vw,2.65rem);
+    letter-spacing:-.035em;
+  }
+  .contact-page-info h2 span{white-space:nowrap}
+}
+@media(max-width:620px){
+  .contact-page-info h2 span{white-space:normal}
+}
