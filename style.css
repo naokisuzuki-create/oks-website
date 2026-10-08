@@ -1718,3 +1718,32 @@
   }
   .column-back{margin-top:24px}
 }
+
+
+/* ===== infographic column covers / 2026-10-08 ===== */
+.column-article-cover-infographic .wrap{
+  display:flex;
+  justify-content:center;
+}
+.column-article-cover-infographic img{
+  width:auto;
+  max-width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+}
+
+@media(min-width:621px){
+  .column-article-cover-infographic img{
+    max-width:900px;
+  }
+}
+
+@media(max-width:620px){
+  .column-article-cover-infographic img{
+    width:100%;
+    height:auto;
+    aspect-ratio:auto;
+    object-fit:contain;
+  }
+}
