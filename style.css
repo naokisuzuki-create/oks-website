@@ -1122,3 +1122,42 @@
 
   .case-section + .contact-v5{padding:44px 0}
 }
+
+
+/* ===== Osaka T work detail mobile optimization / 2026-10-08 ===== */
+@media(max-width:620px){
+  .work-osaka-t .ba-grid{gap:0}
+  .work-osaka-t .ba-pair{
+    padding:22px 0;
+    border-top:1px solid var(--line);
+    background:transparent;
+  }
+  .work-osaka-t .ba-pair:last-child{border-bottom:1px solid var(--line)}
+  .work-osaka-t .ba-pair h3{
+    font-size:1.2rem;
+    margin:0 0 6px;
+  }
+  .work-osaka-t .ba-note{
+    font-size:.82rem;
+    line-height:1.65;
+    margin:0 0 12px;
+  }
+  .work-osaka-t .ba-pair>div{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+  .work-osaka-t .ba-pair figure{
+    min-width:0;
+    background:#eef2f4;
+  }
+  .work-osaka-t .ba-pair img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+  }
+  .work-osaka-t .ba-pair figure span{
+    padding:4px 6px;
+    font-size:.55rem;
+  }
+}
