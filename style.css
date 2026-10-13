@@ -1932,3 +1932,30 @@
 @media(max-width:620px){
   .contact-page-info h2 span{white-space:normal}
 }
+
+
+/* Representative message readability / 2026-10-13 */
+.message-v5 .message-v5-grid{align-items:start}
+.message-v5 .message-v5-grid > img{margin-top:76px}
+.message-v5 .message-v5-grid > div > p:not(.section-kicker){
+  color:#334155;
+  font-size:16px;
+  line-height:1.9;
+  font-weight:400;
+  max-width:760px;
+  margin:0 0 20px;
+}
+.message-v5 .message-v5-grid > div > p.section-kicker{margin:0 0 8px}
+@media(max-width:620px){
+  .message-v5 .message-v5-grid{grid-template-columns:1fr;gap:20px;align-items:start}
+  .message-v5 .message-v5-grid > img{width:160px;margin:0}
+  .strengths-page .strength-message .message-v5-grid{grid-template-columns:1fr;gap:20px;align-items:start}
+  .strengths-page .strength-message .message-v5-grid > img{width:160px;margin:0}
+  .message-v5 .message-v5-grid > div > p:not(.section-kicker),
+  .strengths-page .strength-message .message-v5-grid > div > p:not(.section-kicker){
+    color:#334155;
+    font-size:16px;
+    line-height:1.9;
+    margin:0 0 20px;
+  }
+}
