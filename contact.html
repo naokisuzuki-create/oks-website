@@ -1,4 +1,14 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>お問い合わせ｜株式会社オーケーエス</title><meta name="description" content="リフォーム・修繕・不動産・空き家など、住まいに関するお問い合わせはこちら。"><link rel="stylesheet" href="style.css?v=20261008-contact-heading-v2"></head><body><header class="header"><div class="wrap nav"><a class="brand" href="index.html"><img src="assets/logo.png" alt="株式会社オーケーエス"><span>株式会社オーケーエス</span></a><nav class="navlinks" aria-label="メインナビゲーション"><a href="index.html">HOME</a><a href="about.html">OKSの強み</a><a href="works.html">施工事例</a><a href="realestate.html">不動産</a><a href="news.html">コラム・お知らせ</a><a class="nav-phone" href="tel:0728965220" aria-label="電話 072-896-5220"><span>TEL</span>072-896-5220</a><a class="btn primary nav-cta" href="contact.html">お問い合わせ</a></nav><button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button></div></header>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>お問い合わせ｜株式会社オーケーエス</title><meta name="description" content="リフォーム・修繕・不動産・空き家など、住まいに関するお問い合わせはこちら。"><link rel="stylesheet" href="style.css?v=20261008-contact-heading-v2"><style>
+.contact-form[hidden],.oks-contact-review[hidden]{display:none!important}
+.oks-contact-review h3{font-size:1.3rem;color:var(--navy);margin:0 0 12px}
+.oks-contact-review>p{color:var(--muted);line-height:1.8;margin:0 0 20px}
+.oks-contact-review dl{margin:0 0 24px;border-top:1px solid #dbe3ea}
+.oks-contact-review dt{font-size:.83rem;font-weight:700;color:var(--navy);padding:13px 0 4px}
+.oks-contact-review dd{margin:0;padding:0 0 13px;border-bottom:1px solid #dbe3ea;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.75}
+.oks-contact-review-actions{display:flex;flex-wrap:wrap;gap:12px}
+.oks-contact-review-actions .btn{flex:1 1 180px;text-align:center}
+.oks-contact-review-actions [data-oks-contact-send]{background:var(--blue)}
+</style></head><body><header class="header"><div class="wrap nav"><a class="brand" href="index.html"><img src="assets/logo.png" alt="株式会社オーケーエス"><span>株式会社オーケーエス</span></a><nav class="navlinks" aria-label="メインナビゲーション"><a href="index.html">HOME</a><a href="about.html">OKSの強み</a><a href="works.html">施工事例</a><a href="realestate.html">不動産</a><a href="news.html">コラム・お知らせ</a><a class="nav-phone" href="tel:0728965220" aria-label="電話 072-896-5220"><span>TEL</span>072-896-5220</a><a class="btn primary nav-cta" href="contact.html">お問い合わせ</a></nav><button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button></div></header>
 <main>
 <section class="works-story-head contact-story-head">
   <div class="wrap">
@@ -25,10 +35,10 @@
 
     <div class="contact-form-wrap">
       <h2>お問い合わせフォーム</h2>
-      <form class="form contact-form" data-demo-form>
+      <form class="form contact-form" data-oks-contact-form action="https://script.google.com/macros/s/AKfycbzAPt6SOUePucJIGa_VAoiF3YGXi_i4FWEKdMQeANSF9LTX-Lx_ocvK6JdAAwu5_wLK/exec" method="post" accept-charset="UTF-8">
         <div class="field">
           <label for="contact-type">ご相談内容</label>
-          <select id="contact-type" name="type">
+          <select id="contact-type" name="type" required>
             <option value="reform">リフォーム・修繕</option>
             <option value="realestate">不動産</option>
             <option value="vacant">空き家</option>
@@ -36,25 +46,45 @@
           </select>
         </div>
         <div class="field">
-          <label for="contact-name">お名前</label>
-          <input id="contact-name" type="text" name="name" autocomplete="name">
+          <label for="contact-name">お名前（必須）</label>
+          <input id="contact-name" type="text" name="name" autocomplete="name" maxlength="100" required>
         </div>
         <div class="field">
-          <label for="contact-tel">電話番号</label>
-          <input id="contact-tel" type="tel" name="tel" autocomplete="tel">
+          <label for="contact-tel">電話番号（電話番号・メールアドレスのいずれか必須）</label>
+          <input id="contact-tel" type="tel" name="tel" autocomplete="tel" maxlength="25">
         </div>
         <div class="field">
-          <label for="contact-email">メールアドレス</label>
-          <input id="contact-email" type="email" name="email" autocomplete="email">
+          <label for="contact-email">メールアドレス（電話番号・メールアドレスのいずれか必須）</label>
+          <input id="contact-email" type="email" name="email" autocomplete="email" maxlength="254">
         </div>
         <div class="field">
-          <label for="contact-message">ご相談内容</label>
-          <textarea id="contact-message" name="message" placeholder="分かる範囲でご記入ください"></textarea>
+          <label for="contact-message">ご相談内容（必須）</label>
+          <textarea id="contact-message" name="message" maxlength="3000" required placeholder="分かる範囲でご記入ください"></textarea>
         </div>
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+          <label for="contact-website">ホームページURL（入力不要）</label>
+          <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="form_started" value="">
         <button class="btn primary" type="submit">入力内容を確認する</button>
-        <p class="contact-demo-note">※現在はサンプル版のため、フォーム送信機能は動作しません。</p>
+        <p class="contact-demo-note">入力内容を確認してから送信します。送信後は受付結果の画面に移動します。</p>
       </form>
+      <div class="oks-contact-review" data-oks-contact-review hidden tabindex="-1">
+        <h3>入力内容の確認</h3>
+        <p>以下の内容でよろしければ「この内容で送信する」を押してください。</p>
+        <dl>
+          <dt>ご相談内容</dt><dd data-oks-review-type></dd>
+          <dt>お名前</dt><dd data-oks-review-name></dd>
+          <dt>電話番号</dt><dd data-oks-review-tel></dd>
+          <dt>メールアドレス</dt><dd data-oks-review-email></dd>
+          <dt>お問い合わせ内容</dt><dd data-oks-review-message></dd>
+        </dl>
+        <div class="oks-contact-review-actions">
+          <button class="btn" type="button" data-oks-contact-edit>入力内容を修正する</button>
+          <button class="btn primary" type="button" data-oks-contact-send>この内容で送信する</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-</main><footer class="footer-v5"><div class="wrap"><span>株式会社オーケーエス</span><small>© O.K.S. All Rights Reserved.</small></div></footer><script src="script.js?v=20261019-instagram-color"></script></body></html>
+</main><footer class="footer-v5"><div class="wrap"><span>株式会社オーケーエス</span><small>© O.K.S. All Rights Reserved.</small></div></footer><script src="script.js?v=20261102-contact-form"></script></body></html>
