@@ -57,6 +57,26 @@ document.addEventListener('DOMContentLoaded',()=>{
     `;
     document.head.appendChild(style);
   }
+  // Show the privacy policy in the shared footer on every page.
+  document.querySelectorAll('.footer-v5 .wrap').forEach(footer=>{
+    if(footer.querySelector('.oks-privacy-footer'))return;
+    const privacy=document.createElement('a');
+    privacy.className='oks-privacy-footer';
+    privacy.href='privacy.html';
+    privacy.textContent='プライバシーポリシー';
+    const copyright=footer.querySelector('small');
+    if(copyright)footer.insertBefore(privacy,copyright);
+    else footer.appendChild(privacy);
+  });
+  if(document.querySelector('.oks-privacy-footer')){
+    const style=document.createElement('style');
+    style.textContent=`
+      .footer-v5 .wrap>a.oks-privacy-footer{font-weight:700;color:#42566d;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+      .footer-v5 .wrap>a.oks-privacy-footer:hover{color:#2d79c7}
+      @media(max-width:620px){.footer-v5 .wrap>a.oks-privacy-footer{display:inline-block;margin-top:8px;margin-right:16px}}
+    `;
+    document.head.appendChild(style);
+  }
   const chips=[...document.querySelectorAll('[data-filter]')];
   const cards=[...document.querySelectorAll('[data-category]')];
   const empty=document.querySelector('[data-empty-state]');
