@@ -82,8 +82,51 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   const form=document.querySelector('[data-oks-contact-form]');
   const review=document.querySelector('[data-oks-contact-review]');
+  const resultPanel=document.querySelector('[data-oks-contact-result]');
+  const transport=document.querySelector('iframe[name="oks-contact-transport"]');
 
   if(form&&review){
+    const useInlineResult=form.dataset.oksInlineResult==='true';
+    const requestField=form.elements.namedItem('oks_request_id');
+    let pendingRequestId='';
+    let responseTimer=null;
+
+    const showContactResult=(success,message,receiptId='',unknown=false)=>{
+      if(responseTimer!==null){
+        clearTimeout(responseTimer);
+        responseTimer=null;
+      }
+      pendingRequestId='';
+      const title=resultPanel.querySelector('[data-oks-result-title]');
+      const body=resultPanel.querySelector('[data-oks-result-message]');
+      const receipt=resultPanel.querySelector('[data-oks-result-receipt]');
+      const back=resultPanel.querySelector('[data-oks-result-back]');
+      title.textContent=unknown?'送信結果を確認できませんでした':success?'お問い合わせを受け付けました':'お問い合わせを受け付けられませんでした';
+      body.textContent=message;
+      const validReceipt=success&&/^OKS-[0-9]{8}-[0-9]{6}-[a-z0-9]{8}$/i.test(receiptId);
+      receipt.hidden=!validReceipt;
+      receipt.textContent=validReceipt?'受付番号：'+receiptId:'';
+      back.href=success?'index.html':unknown?'tel:0728965220':'contact.html';
+      back.textContent=success?'OKSホームページへ戻る':unknown?'電話で確認する':'お問い合わせフォームへ戻る';
+      form.hidden=true;
+      review.hidden=true;
+      resultPanel.hidden=false;
+      resultPanel.focus();
+    };
+
+    if(useInlineResult){
+      window.addEventListener('message',event=>{
+        if(!pendingRequestId||!event.data||typeof event.data!=='object')return;
+        const fromGAS=event.origin==='https://script.google.com'||
+          /^https:\/\/(?:[a-z0-9-]+\.)*googleusercontent\.com$/.test(event.origin);
+        if(!fromGAS||event.data.type!=='oks-contact-result-v1'||
+           event.data.requestId!==pendingRequestId)return;
+        const success=event.data.success===true;
+        const message=typeof event.data.message==='string'?event.data.message:'受付結果を確認してください。';
+        const receiptId=typeof event.data.receiptId==='string'?event.data.receiptId:'';
+        showContactResult(success,message,receiptId);
+      });
+    }
     const tel=form.elements.namedItem('tel');
     const email=form.elements.namedItem('email');
     const send=review.querySelector('[data-oks-contact-send]');
@@ -153,7 +196,27 @@ document.addEventListener('DOMContentLoaded',()=>{
 
       send.disabled=true;
       send.textContent='送信中…';
+
+      if(!useInlineResult){
+        form.submit();
+        return;
+      }
+
+      if(!transport||!requestField||!resultPanel||!self.crypto||!self.crypto.randomUUID){
+        send.disabled=false;
+        send.textContent='この内容で送信する';
+        alert('送信画面を準備できませんでした。再読み込みしてお試しください。');
+        return;
+      }
+
+      pendingRequestId=self.crypto.randomUUID().replace(/-/g,'');
+      requestField.value=pendingRequestId;
+      form.target='oks-contact-transport';
       form.submit();
+
+      responseTimer=setTimeout(()=>{
+        showContactResult(false,'受付が完了した可能性があります。重複を避けるため再送信せず、電話で受付状況をご確認ください。','',true);
+      },90000);
     });
 
     window.addEventListener('pageshow',()=>{
