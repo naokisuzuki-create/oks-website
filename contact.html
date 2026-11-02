@@ -1,5 +1,10 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>リフォーム・不動産のお問い合わせ｜株式会社オーケーエス</title><meta name="description" content="株式会社オーケーエスへのお問い合わせ。リフォーム・修繕、不動産売却・購入・買取、空き家の片づけや解体など、住まいのお悩みをお気軽にご相談ください。"><link rel="stylesheet" href="style.css?v=20261008-contact-heading-v2"><style>
-.contact-form[hidden],.oks-contact-review[hidden]{display:none!important}
+.contact-form[hidden],.oks-contact-review[hidden],.oks-contact-result[hidden]{display:none!important}
+.oks-contact-result{padding:32px 26px;border:1px solid #dbe3ea;background:#f8fbff;text-align:center}
+.oks-contact-result h3{font-size:1.4rem;color:var(--navy);margin:0 0 12px}
+.oks-contact-result p{line-height:1.85;overflow-wrap:anywhere}
+.oks-contact-result .oks-contact-receipt{background:#ecf3fb;padding:13px 12px;font-weight:800}
+.oks-contact-result .btn{margin-top:18px}
 .oks-contact-review h3{font-size:1.3rem;color:var(--navy);margin:0 0 12px}
 .oks-contact-review>p{color:var(--muted);line-height:1.8;margin:0 0 20px}
 .oks-contact-review dl{margin:0 0 24px;border-top:1px solid #dbe3ea}
@@ -35,7 +40,7 @@
 
     <div class="contact-form-wrap">
       <h2>お問い合わせフォーム</h2>
-      <form class="form contact-form" data-oks-contact-form action="https://script.google.com/macros/s/AKfycbzAPt6SOUePucJIGa_VAoiF3YGXi_i4FWEKdMQeANSF9LTX-Lx_ocvK6JdAAwu5_wLK/exec" method="post" accept-charset="UTF-8">
+      <form class="form contact-form" data-oks-contact-form data-oks-inline-result="false" action="https://script.google.com/macros/s/AKfycbzAPt6SOUePucJIGa_VAoiF3YGXi_i4FWEKdMQeANSF9LTX-Lx_ocvK6JdAAwu5_wLK/exec" method="post" accept-charset="UTF-8">
         <div class="field">
           <label for="contact-type">ご相談内容</label>
           <select id="contact-type" name="type" required>
@@ -70,6 +75,7 @@
           <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off">
         </div>
         <input type="hidden" name="form_started" value="">
+        <input type="hidden" name="oks_request_id" value="">
         <button class="btn primary" type="submit">入力内容を確認する</button>
         <p class="contact-demo-note">入力内容を確認してから送信します。送信後は受付結果の画面に移動します。</p>
       </form>
@@ -88,7 +94,14 @@
           <button class="btn primary" type="button" data-oks-contact-send>この内容で送信する</button>
         </div>
       </div>
+      <iframe name="oks-contact-transport" title="お問い合わせ送信処理" hidden tabindex="-1" aria-hidden="true" style="display:none;width:0;height:0;border:0"></iframe>
+      <div class="oks-contact-result" data-oks-contact-result hidden tabindex="-1" role="status" aria-live="polite">
+        <h3 data-oks-result-title>お問い合わせ結果</h3>
+        <p data-oks-result-message></p>
+        <p class="oks-contact-receipt" data-oks-result-receipt hidden></p>
+        <a class="btn primary" data-oks-result-back href="index.html">OKSホームページへ戻る</a>
+      </div>
     </div>
   </div>
 </section>
-</main><footer class="footer-v5"><div class="wrap"><span>株式会社オーケーエス</span><small>© O.K.S. All Rights Reserved.</small></div></footer><script src="script.js?v=20261102-contact-turnstile"></script></body></html>
+</main><footer class="footer-v5"><div class="wrap"><span>株式会社オーケーエス</span><small>© O.K.S. All Rights Reserved.</small></div></footer><script src="script.js?v=20261102-contact-inline-bridge"></script></body></html>
