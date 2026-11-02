@@ -79,14 +79,77 @@ document.addEventListener('DOMContentLoaded',()=>{
     const type=new URLSearchParams(location.search).get('type');
     if(type&&[...typeSelect.options].some(o=>o.value===type)) typeSelect.value=type;
   }
-  const form=document.querySelector('[data-demo-form]');
-  if(form){
+
+  const form=document.querySelector('[data-oks-contact-form]');
+  const review=document.querySelector('[data-oks-contact-review]');
+
+  if(form&&review){
+    const tel=form.elements.namedItem('tel');
+    const email=form.elements.namedItem('email');
+    const send=review.querySelector('[data-oks-contact-send]');
+    const edit=review.querySelector('[data-oks-contact-edit]');
+    const started=form.elements.namedItem('form_started');
+
+    if(started)started.value=String(Date.now());
+
+    const clearContactError=()=>{
+      email.setCustomValidity('');
+    };
+
+    tel.addEventListener('input',clearContactError);
+    email.addEventListener('input',clearContactError);
+
     form.addEventListener('submit',e=>{
       e.preventDefault();
-      alert('現在はデザイン確認用です。送信機能は公開前に接続します。');
+      clearContactError();
+
+      if(!tel.value.trim()&&!email.value.trim()){
+        email.setCustomValidity('電話番号またはメールアドレスを入力してください。');
+      }
+
+      if(!form.reportValidity())return;
+
+      const data=new FormData(form);
+      const values={
+        type:form.elements.namedItem('type').selectedOptions[0].textContent,
+        name:data.get('name')||'',
+        tel:data.get('tel')||'未入力',
+        email:data.get('email')||'未入力',
+        message:data.get('message')||''
+      };
+
+      Object.entries(values).forEach(([key,value])=>{
+        const target=review.querySelector('[data-oks-review-'+key+']');
+        if(target)target.textContent=String(value);
+      });
+
+      form.hidden=true;
+      review.hidden=false;
+      review.focus();
+    });
+
+    edit.addEventListener('click',()=>{
+      review.hidden=true;
+      form.hidden=false;
+      form.elements.namedItem('name').focus();
+    });
+
+    send.addEventListener('click',()=>{
+      if(send.disabled)return;
+
+      send.disabled=true;
+      send.textContent='送信中…';
+      form.submit();
+    });
+
+    window.addEventListener('pageshow',()=>{
+      send.disabled=false;
+      send.textContent='この内容で送信する';
     });
   }
+
   const strengthSlider=document.querySelector('[data-strength-slider]');
+
   if(strengthSlider){
     const slides=[...strengthSlider.querySelectorAll('.strengths-hero-slide')];
     const dots=[...document.querySelectorAll('[data-strength-dot]')];
