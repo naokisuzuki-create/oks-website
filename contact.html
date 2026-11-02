@@ -5,6 +5,10 @@
 .oks-contact-result p{line-height:1.85;overflow-wrap:anywhere}
 .oks-contact-result .oks-contact-receipt{background:#ecf3fb;padding:13px 12px;font-weight:800}
 .oks-contact-result .btn{margin-top:18px}
+.oks-contact-privacy-note{font-size:.9rem;color:var(--muted);line-height:1.8;margin:0 0 12px}
+.oks-contact-privacy-note a{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.oks-contact-consent{display:flex;align-items:flex-start;gap:10px;font-weight:650;line-height:1.6;cursor:pointer}
+.oks-contact-consent input{width:18px;height:18px;flex:0 0 18px;margin-top:3px;accent-color:var(--navy)}
 .oks-contact-review h3{font-size:1.3rem;color:var(--navy);margin:0 0 12px}
 .oks-contact-review>p{color:var(--muted);line-height:1.8;margin:0 0 20px}
 .oks-contact-review dl{margin:0 0 24px;border-top:1px solid #dbe3ea}
@@ -70,6 +74,13 @@
           <div class="cf-turnstile" data-sitekey="0x4AAAAAAFv8ENMiCK6_M8qW" data-theme="light" data-appearance="always" data-action="oks_contact"></div>
           <small>迷惑送信防止のため、Cloudflareの認証を利用しています。</small>
         </div>
+        <div class="field">
+          <p class="oks-contact-privacy-note"><a href="privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー（別タブで開きます）</a>をご確認ください。</p>
+          <label class="oks-contact-consent" for="contact-privacy-consent">
+            <input id="contact-privacy-consent" type="checkbox" name="privacy_consent" value="yes" required>
+            <span>個人情報の取扱いに同意する（必須）</span>
+          </label>
+        </div>
         <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
           <label for="contact-website">ホームページURL（入力不要）</label>
           <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off">
@@ -77,7 +88,7 @@
         <input type="hidden" name="form_started" value="">
         <input type="hidden" name="oks_request_id" value="">
         <button class="btn primary" type="submit">入力内容を確認する</button>
-        <p class="contact-demo-note">入力内容を確認してから送信します。送信後は受付結果の画面に移動します。</p>
+        <p class="contact-demo-note">入力内容を確認してから送信します。送信後はこのページ内に受付結果を表示します。</p>
       </form>
       <div class="oks-contact-review" data-oks-contact-review hidden tabindex="-1">
         <h3>入力内容の確認</h3>
