@@ -109,6 +109,12 @@ document.addEventListener('DOMContentLoaded',()=>{
 
       if(!form.reportValidity())return;
 
+      const turnstileToken=form.querySelector('[name="cf-turnstile-response"]');
+      if(!turnstileToken||!turnstileToken.value){
+        alert('ロボット認証が完了していません。認証を確認してください。');
+        return;
+      }
+
       const data=new FormData(form);
       const values={
         type:form.elements.namedItem('type').selectedOptions[0].textContent,
@@ -136,6 +142,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     send.addEventListener('click',()=>{
       if(send.disabled)return;
+
+      const turnstileToken=form.querySelector('[name="cf-turnstile-response"]');
+      if(!turnstileToken||!turnstileToken.value){
+        review.hidden=true;
+        form.hidden=false;
+        alert('ロボット認証の有効期限が切れました。再度認証してください。');
+        return;
+      }
 
       send.disabled=true;
       send.textContent='送信中…';
