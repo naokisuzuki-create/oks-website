@@ -1959,3 +1959,12 @@
     margin:0 0 20px;
   }
 }
+
+
+/* Osaka M full-frame comparisons: retain the original image proportions on all screens */
+.work-osaka-m .ba-pair img{
+  width:100%;
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+}
