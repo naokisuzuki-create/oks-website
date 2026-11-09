@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://oks-inc.com/sitemap.xml
+# Rebuild trigger for Search Console verification
